@@ -1,15 +1,15 @@
 module "network" {
   source                        = "../../modules/gcp/network"
   env                           = "prod"
-  project                       = "imperator"
-  ssh_whitelisted_ips           = ["1.53.240.116/32"]
+  project                       = "YOURPROJECT"
+  ssh_whitelisted_ips           = ["x.x.x.x/32"] # Your ip
 }
 
 
 module "validator-test-us-central1" {
   source                               = "../../modules/gcp/compute"
   env                                  = "prod"
-  project                              = "imperator"
+  project                              = "YOURPROJECT"
   validator_network                    = module.network.vpc_name
   validator_region                     = "us-central1"
   validator_subnetwork                 = module.network.subnet_workloads_ids["us-central1"]
@@ -18,5 +18,5 @@ module "validator-test-us-central1" {
   validator_zone                       = "us-central1-a"
   validator_tags                       = ["local-ssh", "validator"]
   validator_ssh_keys                   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-  validator_disk_size             = "300"
+  validator_disk_size                  = "300"
 }
