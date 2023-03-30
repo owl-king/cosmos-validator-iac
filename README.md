@@ -34,8 +34,6 @@ Terraform is suit for our projects because:
         ├── main.tf				# main.tf: Import all modules. (Remote modules, local modules)
         ├── outputs.tf
         ├── provider.tf
-        ├── terraform.tfstate
-        └── terraform.tfstate.backup
 ```
 
 ## Folder: modules
